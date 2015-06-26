@@ -1,0 +1,126 @@
+<!-- test-campaign-06-2015 Toolbar -->
+<IMG SRC="IMPRESSION_TRACKER_HERE" BORDER=0 WIDTH=0 HEIGHT=0 ALT="Advertisement" style="display:none;" />
+
+<style>
+#overtblogox {
+    position: absolute;
+    display:block;
+    bottom: 0px;
+    right: 65px;
+    height: 71px;
+    width: 28px;
+    z-index: 2147483647;
+    background: url(http://localhost:8000/_public/toolbar/img/bottle.png) no-repeat;
+}
+#cmnpopadbox {
+    width: 300px;
+    height: 500px;
+    background: #fff url(http://localhost:8000/_public/toolbar/img/tbbg.jpg) no-repeat top center; /* change background graphic in pop up */
+    color: #ffffff;
+    margin-left:-32px;
+    position: relative;
+}
+#cmn_ad_box {
+    height: 500px; /* adjust height to pop up ad size */
+}
+.cmnbox_hdr_x, .cmnbox_hdr_x a {
+    margin-left:-50px;
+}
+#cmn_toolbar_ad {
+    min-width: 300px;
+    max-width: 300px;
+    overflow: visible;
+    display: block !important;
+    height: 27px !important;
+    background: #000 url(http://localhost:8000/_public/toolbar/img/tb-logo.jpg) no-repeat top center; /* change graphic that floats over the toolbar */
+}
+#toolbarclick {position: absolute; top: 0px; left: 0px; width: 300px; height: 500px; z-index: 200; }  /* adjust height and width to pop up ad size */
+
+/* custom class below per unit */
+
+#cmntoolbaradholder {position: relative;}
+
+#tbvidframe { position: absolute; top: 250px; left: 4px; z-index: 250; width: 290px; height:188px;
+          border:none; -moz-box-shadow: 2px 2px 5px #595959; -webkit-box-shadow: 2px 2px 5px #595959; box-shadow: 2px 2px 5px #595959;  }
+
+#tb_fw_facebook { position: absolute; top: 460px; left: 150px; width:25px; height:25px; z-index: 220; }
+#tb_fw_twitter  { position: absolute; top: 460px; left: 180px; width:25px; height:25px; z-index: 220; }
+#tb_fw_youtube  { position: absolute; top: 460px; left: 210px; width:25px; height:25px; z-index: 220; }
+
+#tb_fw_whathappens { position: absolute; top: 181px; left: 41px; width:211px; height:42px; z-index: 220; }
+
+#tb_fw_facebook:hover,
+#tb_fw_twitter:hover,
+#tb_fw_youtube:hover,
+#tb_fw_whathappens:hover { opacity: .8; filter:alpha(opacity=80); cursor:hand; cursor:pointer;}
+</style>
+
+<script>
+var TBcampaignname = "test-campaign-06-2015";
+var TBunitType = "Toolbar";
+var TBunitname = TBcampaignname + "-" + TBunitType;
+
+var tb_video_location = 'http://localhost:8000/_public/video.html?campaignName='+TBcampaignname+'&unitType='+TBunitType;
+
+
+var cmn_tb_ad = true;
+
+function cmntbvideoIframeRemove() {
+_gaq.push(['d._trackEvent', TBcampaignname, TBunitname, 'ToolbarClose']);
+document.getElementById('cmnpopadbox').innerHTML = "";
+document.getElementById('overtblogox').style.display = "block";
+}
+
+function cmn_toolbarclick() {
+_gaq.push(['d._trackEvent', TBcampaignname, TBunitname, 'ClickToClientSite']);
+window.open('%%CLICK_URL_ESC%%CLICK_THROUGH_HERE', '_blank');
+cmnAdBoxClose();
+}
+
+function cmn_facebookclick() {
+_gaq.push(['d._trackEvent', TBcampaignname, TBunitname, 'ClickToFacebook']);
+window.open('%%CLICK_URL_ESC%%http://www.facebook.com/vitaminwater', '_blank');
+cmnAdBoxClose();
+}
+
+function cmn_twitterclick() {
+_gaq.push(['d._trackEvent', TBcampaignname, TBunitname, 'ClickToTwitter']);
+window.open('%%CLICK_URL_ESC%%http://twitter.com/#!/vitaminwater', '_blank');
+cmnAdBoxClose();
+}
+
+function cmn_youtubeclick() {
+_gaq.push(['d._trackEvent', TBcampaignname, TBunitname, 'ClickToYoutube']);
+window.open('%%CLICK_URL_ESC%%http://www.youtube.com/user/vitaminwater', '_blank');
+cmnAdBoxClose();
+}
+</script>
+
+<script type="text/javascript">
+function cmntbvideoIframe() {
+
+    var tbHtml = '';
+        tbHtml += '<a id="toolbarclick" href="javascript:cmn_toolbarclick()"><img src="http://media.complex.com/common/images/spacer.gif" width="100%" height="100%" alt="" /></a>';
+        tbHtml += ' <a href=\"javascript:cmn_toolbarclick();\">';
+        tbHtml += '     <img src=\"http://localhost:8000/_public/toolbar/img/whathappensbtn.png\" id=\"tb_fw_whathappens\" />';
+        tbHtml += ' </a>';
+        tbHtml += ' <a href=\"javascript:cmn_facebookclick();\">';
+        tbHtml += '     <img src=\"http://localhost:8000/_public/toolbar/img/fb_icon.png\" id=\"tb_fw_facebook\" />';
+        tbHtml += ' </a>';
+        tbHtml += ' <a href=\"javascript:cmn_twitterclick();\">';
+        tbHtml += '     <img src=\"http://localhost:8000/_public/toolbar/img/twitter_icon.png\" id=\"tb_fw_twitter\" />';
+        tbHtml += ' </a>';
+        tbHtml += ' <a href=\"javascript:cmn_youtubeclick();\">';
+        tbHtml += '     <img src=\"http://localhost:8000/_public/toolbar/img/youtube_icon.png\" id=\"tb_fw_youtube\" />';
+        tbHtml += ' </a>';
+        tbHtml += '<iframe scrolling=\"no\" frameborder=\"0\" id=\"tbvidframe\" src=\"'+tb_video_location+'\">Please view with IFRAME compatible browser</iframe>';
+
+    document.getElementById('cmnpopadbox').innerHTML = tbHtml;
+
+    /* replace with interaction clicktracker */
+    document.getElementById('cmn_interaction_tracking_iframe').src="%%CLICK_URL_ESC%%http://stats.complex.com/generic/interactions.html?campaign="+TBunitname;
+    _gaq.push(['d._trackEvent', TBcampaignname, TBunitname, 'Toolbar Ad Open']);
+    document.getElementById('overtblogox').style.display = "none";
+}
+</script>
+<!-- end test-campaign-06-2015 Toolbar Ad -->

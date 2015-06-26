@@ -1,0 +1,195 @@
+<!-- test-campaign-06-2015 FWBB  -->
+
+<!-- Impression Tracker -->
+<img src="IMPRESSION_TRACKER_HERE" border="0" width="0" height="0" style="display:none;" alt="Advertisement" />
+
+<script type="text/javascript">
+/*
+################
+UNIT SETUP
+################
+*/
+
+//KEYWORDS
+window.competeKW            = ""; /* KEYWORDS such as 'bacardi, alchohol' Comma separated */
+
+//CAMPAIGN INFO
+var fwbb_campaign           = 'test-campaign-06-2015',
+    fwbb_unit               = 'FWBB',
+    fwbb_fullName           = fwbb_campaign + '-' + fwbb_unit,
+    CMN_IS_TAKEOVER_UNIT    = true, //set to false if ROS. This removes padding from redesigned complex
+    is_cmnfwbb              = true; //for cmnUNT site specific fixes. Do NOT edit or remove
+
+//CREATIVE INFO
+var fwbb_video_location     = 'http://localhost:8000/_public/video.html?campaignName='+fwbb_campaign+'&unitType='+fwbb_unit,
+    fwbb_expanded_height    = '300px',
+    fwbb_collapsed_height   = '75px',
+    fwbb_expanded_bg        = 'http://localhost:8000/_public/fwbb/img/fwbb-expanded.jpg',
+    fwbb_collapsed_bg       = 'http://localhost:8000/_public/fwbb/img/fwbb-collapsed.jpg';
+
+//TRACKING INFO
+var fwbb_click_tracker          = "%%CLICK_URL_ESC%%CLICK_THROUGH_TRACKER_HERE", /* CLICK TRACKER with click macro */
+    fwbb_interaction_tracker    = "%%CLICK_URL_ESC%%http://stats.complex.com/generic/interactions.html?campaign="+fwbb_fullName, /* INTERACTION TRACKER with click macro */
+    fwbb_agenda_url             = "http://agenda.complex.com/MY_CUSTOM_URL_HERE"; /* AGENDA URL (usually custom). Do NOT use click macro here */
+
+//SOCIAL MEDIA URLS
+var fwbb_facebook_url           = "%%CLICK_URL_ESC%%http://www.facebook.com/FACEBOOK_NAME_HERE",
+    fwbb_twitter_url            = "%%CLICK_URL_ESC%%http://twitter.com/TWITTER_NAME_HERE",
+    fwbb_youtube_url            = "%%CLICK_URL_ESC%%http://www.youtube.com/user/YOUTUBE_NAME_HERE";
+
+if (CMN_IS_TAKEOVER_UNIT == true) { document.write('<style>#cmn_head_styles { padding:0 !important; }</style>'); } //remove padding from 3x3 unit for takeovers
+</script>
+
+<!-- Site widths -->
+<link rel="stylesheet" href="http://media.complex.com/common/units/fwbb/fwbanner-generic.css" type="text/css" media="screen" />
+
+<style>
+/* General Styles */
+#fw_promo     { display: block; overflow:hidden; height: auto; }
+#fwbanner     { position: relative;  float: left; width: 100%; height: 300px; overflow: hidden; cursor: pointer; background-color: #FCFCFD; background-position: top center; background-repeat: no-repeat; }
+#fwbb_clicker { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 200;}
+#fwbb_holder  { position: relative; width: 100%; height: 100%; margin: 0 auto; }
+#fwbb_fence   { position: relative; width: 970px; height: 100%; margin: 0 auto; }
+
+#fwbb_collapsebtn,
+#fwbb_expandbtn    { position: absolute; right: 0px; top: 0px; font-size: 10px; color:#010101; z-index: 250; cursor: pointer; font-family:Arial, Helvetica, sans-serif; line-height: 1; font-weight: normal; text-transform: uppercase; padding:5px 10px; }
+
+#fwbb_collapsebtn:hover,
+#fwbb_expandbtn:hover    { text-decoration: underline; }
+
+/* Creative styles */
+#fwbb_cta,
+#fwbb_cta_coll { display: block; position: absolute; z-index: 220; }
+
+/* CTA may need to be different on tablet vs desktop */
+.fwbb_isdesktop #fwbb_cta      { left: 715px; top: 252px; width:182px; height:36px; }
+.fwbb_isdesktop #fwbb_cta_coll { left: 613px; top: 17px;  width:211px; height:42px; }
+.fwbb_istablet  #fwbb_cta      { left: 715px; top: 252px; width:150px; height:36px; }
+.fwbb_istablet  #fwbb_cta_coll { left: 613px; top: 17px;  width:180px; height:42px; }
+
+#fwbb_cta img,
+#fwbb_cta_coll img { display: block; margin: 0; width: 100%; height: 100%; border: none; outline: none; }
+
+#fwbb_video  { position: absolute; left:330px; top:40px; width: 350px; height: 222px; cursor: pointer; overflow: hidden; z-index: 252; -moz-box-shadow: 1px 2px 8px #888; -webkit-box-shadow: 1px 2px 8px #888; box-shadow: 1px 2px 8px #888; }
+
+/* Social icons */
+#fwbb_social { position: absolute; left: 138px; top: 265px; width:105px; height:25px; z-index: 250; }
+.fwbb_socialicon       { float: left; margin-right: 5px; }
+.fwbb_socialicon:hover { opacity:0.7; filter:alpha(opacity=70); cursor: pointer; }
+</style>
+
+<div id="fwbanner">
+    <iframe id="cmn_fwbb_interaction_tracking_iframe" width="0" height="0" scrolling="no" frameborder="0" allowtransparency="true" src="" style="display:none"></iframe>
+    <a onclick="fwbb_click_through();">
+        <img width="100%" height="100%" alt="" id="fwbb_clicker" src="http://media.complex.com/common/images/spacer.gif" border="0" />
+    </a>
+    <div id="fwbb_holder">&nbsp;</div>
+</div>
+
+<script type="text/javascript">
+//CLICK THROUGH TRACKER
+function fwbb_click_through() {
+    document.getElementById('fwbb_video').src = fwbb_video_location;
+    window.open(fwbb_click_tracker, "_blank");
+}
+
+// OPEN OVERLAY HANDLER
+function fwbb_overlay_open() {
+    document.getElementById('fwbb_video').src = fwbb_video_location;//mute video
+    document.getElementById('cmn_fwbb_interaction_tracking_iframe').src = fwbb_interaction_tracker;
+    cmnOverlayV2.showOverlay(fwbb_agenda_url, 850, 500, false); //agenda url, width, height, scrolling
+    _gaq.push(['d._trackEvent', fwbb_campaign, fwbb_fullName, 'OpenOverlay']);
+}
+
+/* SOCIAL AND TRACKING FUNCTIONS */
+function fwbb_facebookclick() {
+    _gaq.push(['d._trackEvent', fwbb_campaign, fwbb_fullName, 'ClickToFacebook']);
+    window.open(fwbb_facebook_url, '_blank');
+}
+function fwbb_twitterclick() {
+    _gaq.push(['d._trackEvent', fwbb_campaign, fwbb_fullName, 'ClickToTwitter']);
+    window.open(fwbb_twitter_url, '_blank');
+}
+function fwbb_youtubeclick() {
+    _gaq.push(['d._trackEvent', fwbb_campaign, fwbb_fullName, 'ClickToYoutube']);
+    window.open(fwbb_youtube_url, '_blank');
+}
+
+// CALLBACK FUNCTIONS (Can be omitted if unused)
+
+// Called once when html is available, but before expand / collapse
+function fwbb_onAdReady() {}
+
+// Called on every expand, even initial load
+function fwbb_onExpand() {}
+
+// Called on every collapse
+function fwbb_onCollapse() {}
+
+// DEVICE SPECIFIC CONFIGURATION
+var fwbb_device = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile/i.test(navigator.userAgent)) ? 'tablet' : 'desktop';
+
+var fwbb_cta = {
+
+    expanded: {
+        desktop: {
+            evt: 'mouseover',
+            img: "http://localhost:8000/_public/fwbb/img/desktop-cta-exp.png"
+        },
+        tablet: {
+            evt: 'click',
+            img: "http://localhost:8000/_public/fwbb/img/tablet-cta-exp.png"
+        }
+    },
+
+    collapsed: {
+        desktop: {
+            evt: 'mouseover',
+            img: "http://localhost:8000/_public/fwbb/img/desktop-cta-col.png"
+        },
+        tablet: {
+            evt: 'click',
+            img: "http://localhost:8000/_public/fwbb/img/tablet-cta-col.png"
+        }
+    }
+};
+
+// FWBB Content
+var fwbb_expanded_src = [
+
+    '<a onclick="fwbb_collapse_and_track();" id="fwbb_collapsebtn">-Collapse</a>',
+    '<div id="fwbb_fence">',
+        '<div id="fwbb_social">',
+            '<a onclick="fwbb_facebookclick();">',
+                '<img class="fwbb_socialicon" src="http://media.complex.com/common/images/social/facebook_icon.png" alt="" />',
+            '</a>',
+            '<a onclick="fwbb_twitterclick();">',
+                '<img class="fwbb_socialicon" src="http://media.complex.com/common/images/social/twitter_icon.png" alt="" />',
+            '</a>',
+            '<a onclick="fwbb_youtubeclick();">',
+                '<img class="fwbb_socialicon" src="http://media.complex.com/common/images/social/youtube_icon.png" alt="" />',
+            '</a>',
+        '</div>',
+        '<a id="fwbb_cta" on'+fwbb_cta.expanded[fwbb_device].evt+'="fwbb_overlay_open();">',
+            '<img src="'+fwbb_cta.expanded[fwbb_device].img+'" />',
+        '</a>',
+        '<iframe style="visibility:hidden;" onload="this.style.visibility = \'visible\';" scrolling="no" frameborder="0" name="fwbb_video" id="fwbb_video" src="'+fwbb_video_location+'">Please view with IFRAME compatible browser</iframe>',
+    '</div>'
+
+].join('');
+
+var fwbb_collapsed_src = [
+
+    '<a onclick="fwbb_expand_and_track();" id="fwbb_expandbtn">+Expand</a>',
+    '<div id="fwbb_fence">',
+        '<a id="fwbb_cta_coll" on'+fwbb_cta.collapsed[fwbb_device].evt+'="fwbb_overlay_open();">',
+            '<img src="'+fwbb_cta.collapsed[fwbb_device].img+'" />',
+        '</a>',
+        '<div id="fwbb_video" style="display: none;"></div>',
+    '</div>'
+
+].join('');
+</script>
+<script type="text/javascript" src="http://media.complex.com/common/units/fwbb/cmn-fwbb-collapsible.js"></script>
+
+<!-- test-campaign-06-2015 FWBB DONE -->

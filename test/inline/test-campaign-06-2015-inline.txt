@@ -1,0 +1,432 @@
+<!-- ************************************************** -->
+<!-- Inline advertisement START                         -->
+<!-- Campaign: test-campaign-06-2015                      -->
+<!-- ************************************************** -->
+
+
+<!-- *** IMPRESSION TRACKER HERE *** -->
+<img src="IMPRESSION_TRACKER_HERE" border="0" width="0" height="0" style="display:none;" alt="Advertisement" />
+
+
+<script type="text/javascript">
+//CHECK IF AD IS SERVED IN AN IFRAME = GPT
+if (window.frameElement) {
+
+    //SET PROPER FRAME STYLES
+    var css     = 'body, html { margin: 0; padding: 0; width: 100%; height: 100%; } [id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] p { display: block !important; }';
+    var head    = document.head || document.getElementsByTagName('head')[0];
+    var style   = document.createElement('style');
+
+    style.type = 'text/css';
+    if (style.styleSheet){
+      style.styleSheet.cssText = css;
+    } else {
+      style.appendChild(document.createTextNode(css));
+    }
+
+    head.appendChild(style);
+
+    //SETUP
+    var parentDocument          = window.parent.document;
+    var parentWindow            = window.parent;
+    var thisFrameInParent       = window.frameElement;
+    var parentDivofThisIframe   = thisFrameInParent.parentNode;
+
+    //FIX GOOGLE ANALYTICS (_gaq is missing, recreate it based on parent)
+    //this fix for desktop GPT
+    if (typeof parentWindow.CMHELPERS === 'undefined') {
+        parentWindow.CMNHELPERS.cmnloadAnalytics(); //Initialize GA Account in parent
+    }
+    //this fix for mobile GPT
+    else {
+        parentWindow.CMHELPERS.cmnloadAnalytics(); //Initialize GA Account in parent
+    }
+
+    var _gaq = parentWindow._gaq; //FIX GOOGLE ANALYTICS (_gaq is missing, recreate it based on parent)
+
+    //MEDIA QUERY
+    var mq                      = matchMedia('(max-device-width : 479px)');//this number must match the number in CSS' media query, MAKE IT
+
+    //RESIZE CONTAINER IN PARENT
+    parentDivofThisIframe.style.width           = "100%";
+    parentDivofThisIframe.style.height          = "0px";
+    parentDivofThisIframe.style.paddingBottom   = "45px"; /* (2 x 10px around Advertisement <p>) + 15px line height <p> + 10px bottom = 45px; */
+    parentDivofThisIframe.style.position        = "relative";
+
+    //RESIZE THE IFRAME
+    thisFrameInParent.style.width               = "100%";
+    thisFrameInParent.style.height              = "100%";
+    thisFrameInParent.style.position            = "absolute";
+    thisFrameInParent.style.top                 = "0";
+    thisFrameInParent.style.left                = "0";
+    thisFrameInParent.style.minWidth            = "300px";
+
+    function addPortraitStyles() {
+        parentDivofThisIframe.style.paddingTop = "130%";
+    }
+
+    function addLandscapeStyles() {
+        parentDivofThisIframe.style.paddingTop = "53%"; /* MUST MATCH .cmn_inline's padding top on PHONES in LANDSCAPE orientation */
+    }
+
+    //check if main site's viewport smaller than xxx = MOBILE
+    if(mq.matches) {
+        addPortraitStyles();
+    }
+    //DESKTOP or TABLET
+    else {
+        addLandscapeStyles();
+    }
+
+    //CHECK FOR ORIENTATION CHANGE OR WINDOW SIZE CHANGE
+    mq.addListener(function(changed) {
+        if(changed.matches) {
+            addPortraitStyles();
+        } else {
+            addLandscapeStyles();
+        }
+    });
+}
+
+</script>
+
+<style type="text/css">
+/*
+*****************************************************************
+INLINE STRUCTURE AND STYLES FOR DESKTOP -> LANDSCAPE ORIENTATION
+This is the main portion of your inline, all the default values
+go here.
+*/
+
+[id^=cmn_test_campaign_06_2015_inline_wrapper_ad_], [id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] *, [id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] *:before, [id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] *:after {
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+}
+
+[id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] {
+    display: none;
+    background-color: transparent;
+    position: static !important;/* background fixed must be applied to STATIC container because of Chrome bug. If fixed bg is on relative container it often flickers or disappears */
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+    margin: 0 auto;
+    font-size: 13px;
+    color: #666;
+    text-align: center;
+    padding: 20px 0;
+}
+
+[id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] .cmn_inline_wrapper {
+    background: url(http://localhost:8000/_public/inline/img/bg-landscape.jpg) center center no-repeat;
+    background-size: cover;
+    position: static !important;/* background fixed must be applied to STATIC container because of Chrome bug. If fixed bg is on relative container it often flickers or disappears */
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+    margin: 0 auto;
+}
+
+[id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] .cmn_inline {
+  position: relative;
+  clear: both;
+  padding-top: 53%;
+  width: 100%;
+  z-index: 0;
+  margin: 0;
+}
+
+
+/* RESPONSIVE VIDEO REQUIRES 3 ELEMENTS: wrapper, holder and iframe
+ * wrapper - positions the video
+ * holder - set the aspect ratio of video by changing padding top
+ * iframe - nothing needs to be changed
+ */
+[id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] .cmn_inline_video_frame_wrapper {
+    position: absolute;
+    width: 50%;
+    height: auto;
+    left: 25%;
+    top: 30%;
+    z-index: 50;
+}
+
+/* this is where you set the size of the video by manipulating padding-top */
+[id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] .cmn_inline_video_frame_holder {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 56.25%;
+    left: 0;
+    top: 0%;
+}
+
+/* Most of the time nothing needs to be changed here */
+[id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] .cmn_inline_video_frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+[id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] .cmn_inline_clicker {
+    position: absolute;
+    bottom:0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 45;
+    cursor: pointer;
+}
+
+[id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] .cmn_inline_logo {
+    position: absolute;
+    top:20px;
+    right: 5%;
+    width: 14%;
+    height: auto;
+    cursor: pointer;
+    z-index: 500;
+
+    /* backface-visibility prevents 1px shift when element is hovered */
+
+    -webkit-backface-visibility:hidden; /* Chrome and Safari */
+            backface-visibility:hidden;
+
+    -webkit-transition: all 0.3s linear;
+            transition: all 0.3s linear;
+}
+
+[id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] .cmn_inline_logo:hover {
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+            transform: scale(1.05);
+}
+
+
+/*
+******************************************************************
+INLINE STRUCTURE AND STYLES FOR PHONES -> PORTRAIT ORIENTATION
+This block is mostly for overriding existing styles and making
+them mobile friendly in portrait orientation. Adjust sizes of
+elements and reposition them to fit portrait orientation according
+to provided PSD
+*/
+@media only screen and (max-device-width : 479px) and (orientation : portrait){
+
+    [id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] .cmn_inline_wrapper {
+        min-width: 300px;
+        background: url(http://localhost:8000/_public/inline/img/bg-portrait.jpg) center center repeat;
+        background-size: cover;
+    }
+
+    /* Change the aspect ratio of inline in portrait orientation */
+    [id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] .cmn_inline {
+        /* fill container with bg based on height */
+        padding-top: 130%;
+    }
+
+    /* adjust video size and position */
+    [id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] .cmn_inline_video_frame_wrapper {
+        width: 80%;
+        left: 10%;
+        top: 50%;
+        /* center the video vertically */
+        -webkit-transform:translateY(-50%);
+        -ms-transform:translateY(-50%);
+        transform:translateY(-50%);
+    }
+
+    [id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] .cmn_inline_logo {
+        width: 19%;
+    }
+
+    /* FIX FOR AD CONTAINERS */
+
+    /* complex */
+    .inlineAd-3 {
+        width: 100% !important;
+    }
+    /* thehoopdoctors */
+    #ad300.adds300x250 {
+        height: auto !important;
+    }
+}
+
+/*
+******************************************************************************
+INLINE STRUCTURE AND STYLES FOR PHONES and TABLETS -> LANDSCAPE ORIENTATION
+Most of the time there will be nothing that needs to be done here as landscape
+layout on phones and tablets will be the same as on desktops but if you need
+any specific styles or fixes place them here. Most of the time in landscape
+mode the video (if using JW5) will	need to be made smaller so that nothing
+is on top of the video. Elements on top of the video can't be clicked.
+*/
+@media only screen and (max-device-width : 1024px) and (orientation : landscape) {
+
+     [id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] .cmn_inline_wrapper {
+        /* use diferent image for phones in landscape mode if necessary */
+        background-image: url(http://localhost:8000/_public/inline/img/bg-landscape.jpg);
+    }
+
+    [id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] .cmn_inline_logo {
+        width: 14%;
+        right: 10%;
+        top: 5%;
+    }
+
+    [id^=cmn_test_campaign_06_2015_inline_wrapper_ad_] .cmn_inline {
+        /* this will make inline a little bigger vertically.
+         * this would be useful if you needed to allow more space for navigation,
+         * so that nav is not on top of video. For simple inlines without navigation
+         * it can probably be removed
+         */
+        padding-top: 53%;
+    }
+
+    /* FIX FOR AD CONTAINERS */
+
+    /* complex */
+    .inlineAd-3 {
+        width: 100% !important;
+    }
+}
+
+</style>
+
+
+<script type="text/javascript">
+var cmn_test_campaign_06_2015_inline_random             	= Math.floor(Math.random()*1000000 + 1);
+var cmn_test_campaign_06_2015_inline_wrapper_ad_id      	= "cmn_test_campaign_06_2015_inline_wrapper_ad_" + cmn_test_campaign_06_2015_inline_random;
+var cmn_test_campaign_06_2015_inline_wrapper_ad_id_jq   	= "#" + cmn_test_campaign_06_2015_inline_wrapper_ad_id;
+
+/* CONFIGURE CAMPAIGN NAME AND UNIT TYPE HERE - REMEMBER TO REPLACE "_test_campaign_06_2015_" WITH YOUR OWN UNIQUE VARIABLE NAME */
+var cmn_test_campaign_06_2015_campaignname = 'test-campaign-06-2015',
+    cmn_test_campaign_06_2015_unittype	  = 'Inline';
+
+var cmn_test_campaign_06_2015_percent_c	  = '%%CLICK_URL_ESC%%'; //store DFP macro here for use with video frame later - BE SURE TO CHANGE "_test_campaign_06_2015_" VARIABLE NAME TO YOUR UNIQUE VERSION
+
+document.write('<div id="cmn_test_campaign_06_2015_inline_wrapper_ad_'+cmn_test_campaign_06_2015_inline_random+'" class="cmn_inlines_wrapper_fixes">');
+</script>
+
+    <div class="cmn_inline_wrapper">
+        <div class="cmn_inline">
+
+
+            <!-- CLICKER HOTSPOT - usually no need to remove -->
+            <img class="cmn_inline_clicker" src="http://media.complex.com/common/images/spacer.gif" alt="" />
+
+            <!-- Brand logo typically resides in the upper-right corner - Used as click-through option which lives on top of inline video (desktop only) -->
+            <!-- If logo is not included in the design, feel free to hide this element -->
+            <img class="cmn_inline_logo" src="http://localhost:8000/_public/inline/img/logo.png" alt="" />
+
+            <div class="cmn_inline_video_frame_wrapper">
+                <div class="cmn_inline_video_frame_holder">
+                    <script type="text/javascript">
+                        document.write('<iframe scrolling="no" allowtransparency="true" frameborder="0" class="cmn_inline_video_frame" style="visibility:hidden;" onload="this.style.visibility = \'visible\';"  src="http://localhost:8000/_public/inline/inline-video.html?autostart=false&campaignName='+cmn_test_campaign_06_2015_campaignname+'&unitType='+cmn_test_campaign_06_2015_unittype+'&percent_c='+cmn_test_campaign_06_2015_percent_c+'">Please view with IFRAME compatible browser</iframe>');
+                    </script>
+                </div>
+            </div>
+
+        </div><!-- End of .cmn_inline -->
+    </div>
+
+</div>
+
+<script type="text/javascript">
+/* UNIT SETUP */
+var is_cmninline = true; //for cmnUNT site specific fixes
+
+//CLICK TRACKER HERE
+function _test_campaign_06_2015_ClickThrough() {
+    cmnINLINE.trackEvent('ClickToClient');
+    window.open("%%CLICK_URL_ESC%%CLICK_TRACKER_HERE", "_blank");
+}
+
+var cmn_inline_options = {
+
+    campaignName:   cmn_test_campaign_06_2015_campaignname,
+    unitType:       cmn_test_campaign_06_2015_unittype,
+
+    // store variables for use across callbacks
+    cache: {
+        //isMobileDevice:     (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile/i.test(navigator.userAgent)) ? true : false
+    },
+
+    onAdReady: function($) {
+
+        var inline            		= $(cmn_test_campaign_06_2015_inline_wrapper_ad_id_jq + " .cmn_inline"),
+            inlineWrap         		= $(cmn_test_campaign_06_2015_inline_wrapper_ad_id_jq + " .cmn_inline_wrapper"),
+            inlineFrame       		= $(cmn_test_campaign_06_2015_inline_wrapper_ad_id_jq + " .cmn_inline_video_frame"),
+            inlineLogo        		= $(cmn_test_campaign_06_2015_inline_wrapper_ad_id_jq + " .cmn_inline_logo"),
+            inlineClicker        	= $(cmn_test_campaign_06_2015_inline_wrapper_ad_id_jq + " .cmn_inline_clicker"),
+            inlineWrapper 			  = $(cmn_test_campaign_06_2015_inline_wrapper_ad_id_jq);
+
+
+        /*************************** Inline Event Binding ****************************/
+
+        /* MUST refer to event targets via variables defined above (e.g. inlineLogo) */
+        /* FOR _gaq TRACKING: use cmnINLINE object's "trackEvent" method *************/
+        /* Example: cmnINLINE.trackEvent('ClickOnBackground'); ***********************/
+
+        /*******************************************************************************/
+
+        inlineClicker.click(_test_campaign_06_2015_ClickThrough);
+        inlineLogo.click(_test_campaign_06_2015_ClickThrough);
+
+
+
+        /********************* BEGIN Mobile Orientation Styles for iOS Smartphones **********************/
+
+        /* Only iOS phones require this to re-apply unit CSS on orientation change   */
+        /* This is NOT reproduced in Chrome Device emulation - only on actual iOS    */
+        /* Android devices will react properly to CSS media queries defined above    */
+        /* MUST refer to event targets via variables defined above (e.g. inlineLogo) */
+
+        function _test_campaign_06_2015_MatchMobile(){
+            if( (window.matchMedia('(max-width : 479px)').matches) && (window.matchMedia('(orientation : portrait)').matches) ){
+                inline.css('padding-top','130%');
+                inlineWrap.css('background-image','url(http://localhost:8000/_public/inline/img/bg-portrait.jpg)');
+            }else{
+                inline.css('padding-top','53%');
+                inlineWrap.css('background-image','url(http://localhost:8000/_public/inline/img/bg-landscape.jpg)');
+            }
+        }
+
+        if(cmnINLINE.cache.isMobileDevice) {
+            $(window).on("orientationchange resize", _test_campaign_06_2015_MatchMobile); // Reset styles on orientation change
+            _test_campaign_06_2015_MatchMobile();                                         // Set styles on initial orientation
+        }
+
+        /********************** END Mobile Orientation Styles for iOS Smartphones ***********************/
+
+
+
+        //SHOW unit - DO NOT REMOVE
+        inlineWrapper.css("display", "block");
+
+    }
+};
+
+</script>
+
+<script type="text/javascript">
+if (typeof(CMNUNTjQuery) == 'undefined') {
+    document.write('<scr'+'ipt type="text/javascript" src="http://cdn.complexmedianetwork.com/js/lib/cmn-jquery-1.10.2.js"></sc'+'ript>');
+}
+</script>
+
+<!-- Basic Inline Config File - contains Object properties and trackEvent method - DO NOT REMOVE -->
+<script type="text/javascript" src="http://media.complex.com/common/units/inline/inline.min.js"></script>
+
+
+<!-- MUST CALL this function: cmnINLINE.Init(); It needs to be called after everything has been loaded or passed to the injector tool -->
+<script type="text/javascript">
+cmnINLINE.Init();
+</script>
+
+
+<!-- ************************************************** -->
+<!-- end Inline advertisement -->
+<!-- ************************************************** -->

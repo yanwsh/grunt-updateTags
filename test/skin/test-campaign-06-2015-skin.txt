@@ -1,0 +1,65 @@
+<!-- start test-campaign-06-2015 Dynamic Skin -->
+
+<!--
+#################################
+CONTENT OF AD SLOT 1 (1000x1000)
+#################################
+-->
+<!--  Impression tracker here -->
+<img src="IMPRESSION_TRACKER_HERE" style="display:none;" width="0" height="0" border="0" />
+
+<script type="text/javascript">
+var cmn_skin_clicker = "%%CLICK_URL_ESC%%CLICK_TRACKER_HERE";
+</script>
+<!--
+#################################
+-->
+
+
+
+
+<!--
+#################################
+CONTENT OF AD SLOT 2 (1001x1001)
+#################################
+-->
+<!-- LINK TO GLOBAL CSS -->
+<link rel="stylesheet" type="text/css" href="http://media.complex.com/common/units/skin/skin-global.css" />
+
+<!-- LINK TO EXTERNAL CSS - MOVE INLINE CSS BELOW TO EXTERNAL FILE if working on many versions of the same creative. i.e. ros, to1, to2, to3 etc, - otherwise remove this reference
+<link rel="stylesheet" type="text/css" href="http://localhost:8000/_public/skin/dynamic-skin.css" />
+-->
+<style>
+.fw_complex_alpha, #cmn_dynBg_lt_creative, #cmn_dynBg_rt_creative, #complex_navigation .header-perspective { background-color: #000; }
+.cmn_dynBg_logo, .cmn_dynBg_logo_right  {width:100%; min-width: 400px; max-width: 600px; /* you can use width:1xx%; to make skin shrink AFTER window is smaller than space available */ }
+</style>
+
+<!--[if IE 7]>
+<style>
+.cmn_dynBg {width:600px !important;}
+#cmn_dynBg_lt_creative {
+    float:none !important;
+    margin-right:0px !important;
+    width:600px !important;
+}
+</style>
+<![endif]-->
+
+<!-- Left Side -->
+<div id="cmn_dynBg_lt" class="mm-fixed mm-slideout" onclick="window.open(cmn_skin_clicker, '_blank');">
+    <div id="cmn_dynBg_lt_creative" class="cmn_dynBg">
+        <div class="cmn_dynBg_logo"><img src="http://localhost:8000/_public/skin/img/left.jpg" id="cmn_left_logo" alt="" /></div>
+    </div>
+</div>
+<!-- Right Side -->
+<div id="cmn_dynBg_rt" class="mm-fixed mm-slideout" onclick="window.open(cmn_skin_clicker, '_blank');">
+    <div id="cmn_dynBg_rt_creative" class="cmn_dynBg">
+        <div class="cmn_dynBg_logo_right"><img src="http://localhost:8000/_public/skin/img/right.jpg" id="cmn_right_logo" alt="" /></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+var is_cmnskin = true; //for cmnUNT site specific fixes
+</script>
+<script type="text/javascript" src="http://media.complex.com/common/units/skin/dynamic-skin-config-nojq.js"></script>
+<!-- end test-campaign-06-2015 Dynamic Skin ad -->
